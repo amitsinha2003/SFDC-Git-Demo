@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>User Story Passed - Mobile Friendly</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>TKR User Story Passed - Mobile Friendly</name>
+    <style>none</style>
+    <subject>{!TKR_User_Story__c.Story_Points_Total__c} pts: {!TKR_User_Story__c.Name} has passed!</subject>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>The As A... roles values used within the User Story&apos;s &quot;As A...&quot; field and related formula field</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Role10__c</fullName>
+        <defaultValue>&quot;Sales&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role10</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role10</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role11__c</fullName>
+        <defaultValue>&quot;Support Administration&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role11</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role11</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role12__c</fullName>
+        <defaultValue>&quot;Service Management&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role12</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role12</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role1__c</fullName>
+        <defaultValue>&quot;Any User&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role1</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role2__c</fullName>
+        <defaultValue>&quot;Business Administration&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role3__c</fullName>
+        <defaultValue>&quot;Chatter Only&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role3</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role4__c</fullName>
+        <defaultValue>&quot;Compliance&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role4</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role4</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role5__c</fullName>
+        <defaultValue>&quot;Customer&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role5</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role5</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role6__c</fullName>
+        <defaultValue>&quot;Customer Services&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role6</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role6</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role7__c</fullName>
+        <defaultValue>&quot;Events&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role7</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role7</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role8__c</fullName>
+        <defaultValue>&quot;Executive &amp; Report Only&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role8</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role8</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role9__c</fullName>
+        <defaultValue>&quot;Marketing&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Role9</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User Role in the &quot;As A...&quot; picklist</inlineHelpText>
+        <label>Role9</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Use_Default_Roles__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enabled Default Roles</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to use the default Tracker multiselect pick list values in the TKR_Full_UserStory__c field. If you do not want to use the preconfigured list uncheck</inlineHelpText>
+        <label>Use Default Roles</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>TKR As A User Roles</label>
+    <visibility>Public</visibility>
+</CustomObject>

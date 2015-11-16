@@ -1,0 +1,2 @@
+<apex:page sidebar="false" action="{!generateSession}" controller="DDTracker.TKR_Controller_PlanningPoker">
+</apex:page>

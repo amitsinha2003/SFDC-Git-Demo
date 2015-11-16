@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Estimated Status of the US once it has been through Planning Poker estimation</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Value__c</fullName>
+        <defaultValue>&quot;Backlog - Estimated&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Tracker: Value of the Estimated Status of the User Story, following Planning Poker estimation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Estimated Status of the User Story once it has been through Planning Poker estimation</inlineHelpText>
+        <label>Value</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>TKR Estimated Status</label>
+    <visibility>Public</visibility>
+</CustomObject>

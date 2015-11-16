@@ -1,0 +1,71 @@
+<!--
+***************************************************************************************************************************************** 
+* Component Name   : TKR_Charts_GanttController
+* Description  : This class is used to diusplay the agntt chart
+* Created By   : Deloitte Consulting
+* Change Log   : 23 Jun 2015: S.Holmes -  •  Add JSINHTMLENCODE for security scan line 28, later removed as it causes bugs                                    
+*                26 Jun 2015: S.Holmes -  •  Add JSENCODE for security scan line 38
+*****************************************************************************************************************************************/
+-->
+
+<apex:component controller="DDTracker.TKR_Charts_GanttController">
+    <apex:includeScript value="{!URLFOR($Resource.DDTracker__ChartResources, 'jquery-1.4.4.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.DDTracker__ChartResources, 'date.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.DDTracker__ChartResources, 'jquery-ui-1.8.7.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.DDTracker__ChartResources, 'jquery.ganttView.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.DDTracker__ChartResources, 'jquery-ui-1.8.4.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.DDTracker__ChartResources, 'reset.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.DDTracker__ChartResources, 'jquery.ganttView.css')}"/>
+    <apex:includeScript value="/soap/ajax/20.0/connection.js"/>
+    
+    <apex:attribute name="target" type="String" required="true" description="" assignTo="{!mytarget}" />
+    <apex:attribute name="readonly" type="String" description=""/>
+    <br/><br/>          
+    <div id="ganttChart{!target}"></div>
+    
+    <script type="text/javascript">
+      <apex:outputText value="{!projectGanttJson}" />
+      <!--  causes errors so don't use encode apex:outputText value="{!JSINHTMLENCODE(projectGanttJson)}" /-->
+        var g{!target} = jQuery.noConflict();
+        
+        g{!target}(function () {
+            var dropEvent = function (data) {
+                        var startDate = data["start"];
+                        var endDate = data["end"];
+                        var id = data["id"];
+                        var pcomplete = data["pcomplete "];
+                        var sobject; 
+                        // sph 26.06.2015 - add JSENCODE for security scan
+                        sobject = new sforce.SObject("{!JSENCODE(objectType)}");
+                        sobject["{!JSENCODE(idFieldName)}"] = id;
+                        sobject["{!JSENCODE(startDateFieldName)}"] = startDate;
+                        sobject["{!JSENCODE(endDateFieldName)}"] = endDate;
+                        sobject["{!JSENCODE(pcompleteFieldName)}"] = pcomplete;    
+                        sforce.connection.sessionId = "{!JSENCODE($Api.Session_ID)}";                               
+                        sforce.connection.update([sobject],{
+                                onSuccess : function(result){
+                                            },
+                                onFailure : function(result){
+                                                alert('{!$Label.TKR_AnErrorHasOcurred}' +': '+result);
+                                            }
+                        })
+                    }
+            var readonly = "{!readonly}" != "true";
+            g{!target}("#ganttChart{!target}").ganttView({ 
+                data: ganttData{!target},
+                slideWidth: 900,
+                behavior: {
+                    draggable: readonly,
+                    resizable: readonly, 
+                    onClick: function (data) {
+                        if(data && data.id){
+                            parent.location.href = '/'+data.id;
+                        }
+                    },
+                    onResize: dropEvent,
+                    onDrag: dropEvent
+                }
+            });
+        });
+    </script>
+</apex:component>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>TKR_Environment__c.Description__c</field>
+    </columns>
+    <columns>
+        <field>TKR_Environment__c.Technology__c</field>
+    </columns>
+    <columns>
+        <field>TKR_Environment__c.Type__c</field>
+    </columns>
+    <columns>
+        <field>TKR_Environment__c.Org_ID__c</field>
+    </columns>
+    <columns>
+        <field>TKR_Environment__c.Track__c</field>
+    </columns>
+    <columns>
+        <field>TKR_Environment__c.Last_Refresh__c</field>
+    </columns>
+    <columns>
+        <field>TKR_Environment__c.Status__c</field>
+    </columns>
+    <description>Details all environments within Tracker</description>
+    <format>Tabular</format>
+    <name>All Environments</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$TKR_Environment__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>TKR_Environment__c.Last_Refresh__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>TKR User Story Template Computer Systems Quality</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>TKR_Tracker_Standard</letterhead>
+    <name>TKR User Story Template Computer Systems Quality</name>
+    <style>freeForm</style>
+    <subject>User Story Approval Request - {!TKR_User_Story__c.Name}</subject>
+    <textOnly>Dear {!TKR_User_Story__c.Computer_Systems_Quality__c}
+
+This is an approval request for User Story {!TKR_User_Story__c.Name}
+
+Please click on the link below to review and approve the request.
+
+User Story Link:
+
+{!TKR_User_Story__c.Link}
+
+
+
+
+
+Many thanks,
+
+{!TKR_User_Story__c.Submitter__c}</textOnly>
+    <type>html</type>
+</EmailTemplate>

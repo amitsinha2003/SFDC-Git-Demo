@@ -1,0 +1,45 @@
+<!-- Name    : DuplicateCheckerPage -->
+<!-- Author : Deloitte Consulting -->
+<!-- Desc    : Check duplicate records when new created -->
+<apex:page standardController="Contact" extensions="DuplicateCheckerController" action="{!testAction}">
+  <apex:pageMessages />
+Test page
+  <!-- Approach 1 -->
+  <!-- <table>
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>{!fld.Label}</th>
+        </tr>
+        <apex:repeat value="{!matchList}" var="match">
+            <tr>
+                <td><apex:outputLink value="/{!match.Id}" target="_top">{!match.Id}</apex:outputLink></td>
+                <td>{!match.FirstName}</td>
+                <td>{!match.LastName}</td>
+            </tr>
+        </apex:repeat>
+  </table> -->
+
+  <!-- Approach 2 -->
+  <!-- <table>
+        <tr>
+            <apex:repeat value="{!$ObjectType.Contact.fieldsets.Duplicate_Record_fields_to_display}" var="fld">
+                <th>{!fld.Label}</th>
+            </apex:repeat>
+        </tr>
+        <apex:repeat value="{!matchList}" var="match">
+            <tr>
+                <apex:repeat value="{!$ObjectType.Contact.fieldsets.Duplicate_Record_fields_to_display}" var="fld">
+                    <td>{!match[fld]}</td>
+                </apex:repeat>
+            </tr>
+        </apex:repeat>
+  </table>
+ -->
+  <!-- Approach 3 -->
+    <table>
+        
+    </table>
+
+</apex:page>

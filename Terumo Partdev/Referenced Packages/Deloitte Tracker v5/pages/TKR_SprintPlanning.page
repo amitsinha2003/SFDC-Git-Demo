@@ -1,0 +1,499 @@
+<apex:page controller="DDTracker.TKR_sprintPlanning" standardStylesheets="false" showheader="false" sidebar="false">
+    <head>
+        <apex:includeScript value="{!URLFOR($Resource.DDTracker__Planomatic, 'js/jquery-1.3.2.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.DDTracker__Planomatic, 'js/jquery-ui-1.7.2.custom.min.js')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.DDTracker__Planomatic, 'styles.css')}" />
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <style>
+        
+        .glow, .loginInputBox, .loginStyledInputBox{
+    background:#FAFAFA none repeat scroll 0 0;
+    border:1px solid #ddd;
+    font-size:14px;
+    line-height:20px;
+    margin:10;
+    padding:3px;
+}
+
+.glow, .loginInputBox{
+    width:280px; 
+}
+
+.glow:focus {
+    box-shadow: 0 0 8px rgba(108, 196, 227, 0.5);
+    -moz-box-shadow: 0 0 8px rgba(108, 196, 227, 0.5);
+    -webkit-box-shadow: 0 0 8px rgba(108, 196, 227, 0.5);           
+    background: none repeat scroll 0 0 #F0F8FE;
+    border-color: rgba(108, 196, 227, 0.75) !important;
+    outline: medium none;
+}
+     #SprintLink{
+                padding-top: 10px;
+                padding-bottom: 20px;
+            } 
+     .button {
+            position:relative;
+            align: right;
+            background: #009DDC;
+            background-color: #009DDC;
+            -moz-border-radius:0px;
+            -webkit-border-radius:0px;
+            border-radius:3px;
+            border:0px solid #268a16;
+            display:inline-block;
+            color: #FFFFFF;
+            font-family:arial;
+            font-size:14px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+        }
+        .button:hover {
+            color: #FFFFFF;
+            background: #8de342;
+            background-color:#5cb811;
+            text-decoration: none;
+        }
+        .button:active {
+            position:relative;
+            top:1px;
+        }
+      
+            .column{
+                min-height:200px;
+                background:#fff;
+                float:left;
+                border:Solid 1px #969696;
+                border-radius :3px;
+                -moz-border-radius:3px;
+                -webkit-border-radius:3px;
+                margin:10px 0 10px 0;
+            }
+            .planningBlock{
+                width:350px;
+                min-height:100px;
+                background:#fff;
+                position:fixed;
+                z-index:99999999;
+                float:left;
+                border:Solid 1px #969696;
+                border-radius :3px;
+                -moz-border-radius:3px;
+                -webkit-border-radius:3px;
+                margin:10px 0px 10px 0;
+                padding:10px 10px 10px 10px;
+                font-family:arial; 
+                font-size:0.9em;
+            }
+            .column .dragbox{
+                margin:5px 2px  20px;
+                background:#fff;
+                position:relative;
+                border:1px solid #ddd;
+                -moz-border-radius:3px;
+                -webkit-border-radius:3px;
+                width:350px;
+                float:left;
+                left:10%;
+                height:185px;
+                
+            }
+            .column .dragbox h2{
+                margin:0;
+                font-size:12px;
+                padding:5px;
+                background:#000000;
+                border-bottom:1px solid #eee;
+            }
+            .dragbox-content-head{
+                background: grey;
+                color: white;
+                overflow: hidden;
+                height: 30px;
+                cursor:move;
+                font-family:arial; 
+                font-size:0.9em; 
+                line-height:1.5em;
+                margin: 1px;
+                -moz-border-radius-topleft:3px;
+                -moz-border-radius-topright:3px;
+                border-top-left-radius:3px;
+                border-top-right-radius:3px;
+                -webkit-border-top-left-radius:3px;
+                -webkit-border-top-right-radius:3px;
+            }
+            .dragbox-footer{
+                background: grey;
+                color: #FFFFFF;
+                overflow: hidden;
+                height: 20px;
+                cursor:move;
+                font-family:arial; 
+                font-size:0.9em; 
+                line-height:1.5em;
+                margin: 1px;
+                -moz-border-radius-bottomleft:3px;
+                -moz-border-radius-bottomright:3px;
+                border-bottom-left-radius:3px;
+                border-bottom-right-radius:3px;
+                -webkit-border-bottom-left-radius:3px;
+                -webkit-border-bottom-right-radius:3px;
+                
+            }
+            .dragbox-content-head-content{
+                float:left;
+                min-width:30px;
+                height:100%;
+                padding:0px 5px 0px 5px;
+            }
+            .dragbox-content{
+                background:#fff;
+                min-height:100px; margin:5px;
+                font-family:'Lucida Grande', arial; font-size:0.8em; line-height:1.5em;
+            }
+            .column  .placeholder{
+                background: #f9f9f9;
+                border:1px dashed #ddd;
+                min-height:12000px
+            }
+            .dragbox h2.collapse{
+                background:#f9f9f9 url({!URLFOR($Resource.DDTracker__Planomatic, 'collapse.png')}) no-repeat top right;
+            }
+            .dragbox h2 .configure{
+                font-size:11px; font-weight:normal;
+                margin-right:30px; float:right;
+            }
+            .filterstext{
+                font-family:arial;font-size:14px;font-weight:bold;
+                }
+                /* link formats */
+                a:link {color: #FFFFFF;}
+                a:visited {color: #FFFFFF;}
+                a:hover {color: #FFFFFF;}
+                a:active {color: #FFFFFF;}
+                
+            .color-green  {background:#8dc100;}
+            .color-orange {background:#F28705;}
+            .color-yellow {background:#f2bc00;}
+            .color-pink   {background:#F28280;}
+            .color-blue   {background:#52AED9;}
+            .color-white  {background:#A7F205;}
+            .color-sky    {background:#54D500;}
+            .ColumnHeader {font-family:Arial;font-size:1.2em;}
+            BODY {background-attachment: fixed;}
+            
+        </style>
+         <script>
+             $j = jQuery.noConflict(); 
+             $j(document).ready(function() {
+                $j("#productDetails").dialog({ autoOpen: false, modal: true, position: 'center',width: 320});
+             });
+             var userStoryId; 
+             function showDialog(name){  
+                $j("#productDetails").dialog("open");
+                $j('#productDetails').dialog("option" , "title" , "Post Chatter to User Story");
+                $j('#productDetails').dialog('option', 'position', 'center');
+                userStoryId = name;
+                return false;
+             }
+             function addChatterCommentJS(){
+                
+                if($j("#chatterNote").val() != '' || $j("#chatterNote").val() != null){
+                    addChatterCommentJSFucntion(userStoryId,$j("#chatterNote").val());
+                }else{
+                    alert('Please add chatter comments');
+                }
+                
+             }
+             function closeDialogAfterPost(){
+                $j("#productDetails").dialog("close");
+             }
+             /* added 12.08.2015 for filter by functional area */
+             /*function filtespJS(){
+                  alert('in filtesp');
+
+                   alert(1);
+  
+             }*/
+                 
+             function autoPlanJS(){
+                alert('Sprint Autoplan Complete');
+                //autoPlanJSFunction();             
+             }
+            
+         
+        function CloseAndRefresh(){
+          window.opener.location.href="/{!$CurrentPage.parameters.id}";
+          window.top.close(); 
+          // window.open('', '_self', ''); 
+         // window.close();
+        }
+             
+         </script>
+    </head>
+    <body background="{!URLFOR($Resource.DDTracker__SFDCback)}">
+    
+    <div class="color-blue" id="toptitle1" style="width:100%;height:40px;color:white;line-height: 40px;text-align:center;vertical-align:middle;font-size:22px;font-family:arial;">
+        <strong>Sprint Planning</strong>
+        </div>
+        <apex:form >
+            <apex:actionFunction name="updateUserStoriesJSFunction"
+                action="{!updateUserStoriesSprint}" rerender="planbBlock">
+                <apex:param name="UpdateSwing" value="" />
+                <apex:param name="UserStoryID" value="" />
+            </apex:actionFunction>
+            
+            <apex:actionFunction name="addChatterCommentJSFucntion" action="{!addChatterComment}" rerender="fakeRerender" oncomplete="closeDialogAfterPost()">
+                <apex:param name="UserStoryID" value="" />
+                <apex:param name="ChatterComment" value="" />
+            </apex:actionFunction>
+            <apex:outputPanel id="fakeRerender"></apex:outputPanel>
+            
+            <apex:actionFunction name="autoPlanJSFunction" action="{!autoPlan}" rerender="planbBlock">
+            </apex:actionFunction>
+                
+         
+            <apex:outputPanel rendered="{!!CurrentSprintInPlanning}">
+                <span class="filterstext">This sprint status is not "In Planning", therefore you cannot plan this sprint.
+                <div id="SprintLink">
+                <a class="button" href="/{!CurrentSprint}">Close</a>
+            </div></span>
+
+        </apex:outputPanel> 
+            
+        
+    
+                    
+        <apex:outputPanel rendered="{!CurrentSprintInPlanning}">
+           
+      
+         <!-- section called from sprint object -->     
+         <br/>  
+            <span class="filterstext">Project</span>
+                    &nbsp;
+                <apex:selectList id="saselect1" size="1" value="{!currentProject}" multiselect="false">
+                <apex:actionSupport event="onchange" action="{!syncUserStory}"
+                    rerender="pSprint" status="updateSprint" />
+                <apex:selectOptions value="{!Project}" />
+            </apex:selectList>
+            <apex:actionStatus id="updateSprint" onStart="hidePanel();"
+                onStop="showPanel();" startText=" (Retrieving Sprint for this Project...)" />
+            <apex:outputpanel id="pSprint">&nbsp;&nbsp;
+            <span class="filterstext"> Sprint In Planning</span>
+                    &nbsp;
+                <apex:selectList id="saselect" size="1"
+                value="{!currentSprint}" multiselect="false">
+                <apex:actionSupport event="onchange" action="{!syncUserStory}"
+                    rerender="UserStoryContainer,planbBlock,autoplan" status="updateUserStoryStatus" />
+                <apex:selectOptions value="{!Sprint}" />
+            </apex:selectList>
+            
+            
+            <span class="filterstext">Filter by Functional Area</span>
+                    &nbsp;              
+                <apex:selectList id="theval" size="1"  
+                value="{!funcSelValue}" multiselect="false">
+                <apex:actionSupport event="onchange" action="{!syncUserStory}"
+                    rerender="UserStoryContainer,planbBlock,autoplan" status="updateUserStoryStatus" />
+                <apex:selectOptions value="{!Funcval}" />              
+                </apex:selectList>
+                <apex:actionStatus id="updateUserStoryStatus1" onStart="hidePanel();"
+                   onStop="showPanel();" startText=" (Retrieving User Stories...)" />
+                   
+                   <apex:actionStatus id="updateUserStoryStatus" onStart="hidePanel();"
+                onStop="showPanel();" startText=" (Retrieving User Stories...)" />               
+            &nbsp;&nbsp;
+                   
+                &nbsp;<br/><br/>
+                <span class="filterstext">Order by</span>
+                    &nbsp; <apex:selectRadio id="ordertype" value="{!OrderFlag}" styleClass="filterstext">   
+                    <apex:selectOptions value="{!orderItems}" / >                    
+                    <apex:actionSupport event="onchange" action="{!syncUserStory}"
+                        rerender="UserStoryContainer,planbBlock,autoplan" status="updateUserStoryStatus" />
+                    </apex:selectRadio>
+                
+                
+               </apex:outputpanel>
+               <apex:outputpanel rendered="{!currentSprint == null}">
+                <a href="/a0N/o">Please select a sprint first, and use the plan sprint button to access this page.</a>
+               </apex:outputpanel>
+                          
+               <apex:outputpanel id="planbBlock">
+            
+            <!-- style="position: fixed;z-index:9999" -->
+            <br/>
+            <br/>
+            <div class="planningBlock">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Capacity</th>
+                            <th>&nbsp;</th>
+                            <th>Planned</th>
+                            <th>&nbsp;</th>
+                            <th>Remaining</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                            <td style="width:30%" class="color-blue"> SFDC</td>
+                            <td class="color-blue"><input id="TotalSFDC" type="text" readonly="readonly" size="4" value="{!SelectedSprint.Tech1_Story_Points__c}"></input></td>
+                            <td></td>
+                            <td class="color-blue"><input id="PlannedSFDC" readonly="readonly" size="4" value="{!sfdcPlanned}"></input></td>
+                            <td> </td>
+                            <td class="color-blue"><input id="RemainingSFDC" readonly="readonly" size="4" value="{!sfdcRemain}"></input></td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="width:30%" class="color-orange"> Other</td>
+                            <td class="color-orange"><input id="TotalOther" type="text" readonly="readonly" size="4" value="{!SelectedSprint.Tech2_Story_Points__c}"></input></td>
+                            <td> </td>
+                            <td class="color-orange"><input id="PlannedOther" readonly="readonly" size="4" value="{!OtherPlanned}"></input></td>
+                            <td> </td>
+                            <td class="color-orange"><input id="RemainingOther" readonly="readonly" size="4" value="{!OtherRemain}"></input></td>
+                        </tr>
+            
+                    </tbody>     
+                </table> 
+             <br/> 
+             <apex:outputpanel id="autoplan" >
+                    <apex:commandButton styleclass="button" value="AutoPlan" onclick="autoPlanJS();" action="{!autoPlan}" disabled="{!IF(currentSprint == null, true,false)}"/>&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton styleclass="button" value="Save and Close" action="/{!CurrentSprint}" oncomplete="CloseAndRefresh();"/>
+             </apex:outputpanel>   
+             </div>             
+            </apex:outputpanel>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+                    
+            <div id="UserStoryDiv" style="width:100%; height: 100%; float: left; padding-top: 15px;text-align:center;">
+                <apex:outputpanel id="UserStoryContainer" style="margin-top:12px;">
+                    <div class="column" id="AllocateUSies" style="width:49%">
+                        <div style="width:100%;" align="center"><br/>
+                            <img src="/img/samples/flag_green.gif"/> <span class="ColumnHeader">In Sprint<br/><br/></span>
+                        </div>
+                        <apex:repeat value="{!AllocatedUserStory}" var="us">
+                          <div class="dragbox" id="{!us.Id}">
+                                <div class="dragbox-content-head">
+                                    <div class="dragbox-content-head-content">
+                                        <strong>{!us.Name}</strong>
+                                    </div>
+                                    <div class="dragbox-content-head-content color-sky">SP:
+                                       {!IF(us.Story_Points__c !=
+                                        '',us.Story_Points__c,'0')}</div>
+                                        
+                                     <div class="dragbox-content-head-content color-yellow" style="float:right;">
+                                        Priority:{!IF(us.Master_Priority__c !=
+                                            0,us.Master_Priority__c,0)}</div>    
+                                            
+                                    <div class="dragbox-content-head-content color-green" style="float:right;">Rank:
+                                       {!IF(us.Ranked_Priority__c !=
+                                        0,us.Ranked_Priority__c,0)}</div>
+                                        
+                                   
+                                    </div>                              
+                                <div class="dragbox-content">
+                                    <p>Description : <strong>As a</strong> {!us.As_A__c} <strong>I want to</strong> {!us.I_Want_To__c} <strong>so that</strong> {!us.So_that__c} 
+                                     <br/>Functional Area: {!us.Functional_area__c}</p>
+                                </div>
+                                <div class="dragbox-footer">
+                                   <a id="{!us.Id}" href="#"  onclick="return showDialog('{!us.Id}')"><img src="/s.gif" alt="" title=""/><img style="vertical-align: text-bottom;" src="/img/feeds/feed16.png"/> Post Chatter</a>
+                                </div>
+                            </div>
+                        </apex:repeat>
+                    </div>                    
+                     <div class="column" id="NonAllocateUSies" style="width:49%;margin-left:10px;">
+                        <div style="width:100%;" align="center"><br/>
+                            <img src="/img/samples/flag_red.gif"/> <span class="ColumnHeader">Out of Sprint<br/><br/></span>
+                        </div>
+                        <apex:repeat value="{!NotAllocatedUserStory}" var="nus">
+                            <div class="dragbox" id="{!nus.Id}">
+                                <div class="dragbox-content-head">
+                                    <div class="dragbox-content-head-content">
+                                        <strong>{!nus.Name}</strong>
+                                    </div>
+                                    <div class="dragbox-content-head-content color-sky">SP:
+                                       <span id="{!nus.Id}=SF">  {!IF(nus.Story_Points__c !=
+                                        '',nus.Story_Points__c,'0')}</span></div>
+                                    <div class="dragbox-content-head-content color-yellow" style="float:right;">
+                                        Priority:{!IF(nus.Master_Priority__c !=
+                                            0,nus.Master_Priority__c,0)}
+                                    </div>
+                                    
+                                    <div class="dragbox-content-head-content color-green" style="float:right;">Rank:
+                                       {!IF(nus.Ranked_Priority__c !=
+                                        0,nus.Ranked_Priority__c,0)}</div>
+                                    
+                                                                  
+                                    </div>
+                                <div class="dragbox-content">
+                                    <p>Description : <strong>As a</strong> {!nus.As_A__c} <strong>I want to</strong> {!nus.I_Want_To__c} <strong>so that</strong> {!nus.So_that__c}
+                                    <br/>Functional Area: {!nus.Functional_area__c}</p>
+                                </div>
+                                <div class="dragbox-footer">
+                                    <a id="{!nus.Id}" href="#"  onclick="return showDialog('{!nus.Id}')"><img src="/s.gif" alt="" title=""/><img style="vertical-align: text-bottom;" src="/img/feeds/feed16.png"/> Post Chatter</a>
+                                </div>
+                            </div> 
+                        </apex:repeat>
+                    </div>
+                    <!-- Need to Re load the script Every time there is an Ajax Request -->
+                    
+                    <script type="text/javascript">
+                        var $j = jQuery.noConflict();
+                        $j(function() {
+                            $j( "#dialog-modal" ).dialog( "close" );
+                            $j('.dragbox').each(function() {
+                                $j(this).hover(function() {
+                                    // to add expand/collapse image when hovered over.
+                                    $j(this).find('.dragbox-content-head').addClass('collapse');
+                                }, function() {
+                                    $j(this).find('.dragbox-content-head').removeClass('collapse');
+                                }).find('.dragbox-content-head').hover(function() {
+                                    $j(this).find('.configure').css('visibility', 'visible');
+                                }, function() {
+                                    $j(this).find('.configure').css('visibility', 'hidden');
+                                }).click(function() {
+                                    $j(this).siblings('.dragbox-content').toggle();
+                                }).end().find('.configure').css('visibility', 'hidden');
+                            });
+                            $j('.column').sortable({
+                                connectWith : '.column',
+                                handle : '.dragbox-content-head',
+                                cursor : 'move',
+                                placeholder : 'placeholder',
+                                forcePlaceholderSize : true,
+                                containment: 'document',
+                                opacity : 0.4,
+                                receive: function(event, ui) { 
+                                    updateUserStoriesJSFunction(event.target.id,$j(ui.item).attr('id'));                                    
+                                }
+                                
+                            }).disableSelection();
+                        });
+                    </script>
+                </apex:outputpanel>
+            </div>
+                <div id="productDetails">
+                    <div style="float: left; width: 99%">
+                        <textarea class="glow" id="chatterNote" rows="6" cols="50">
+                        </textarea>
+                        <input type="hidden" id="productID" name="productID" />
+                    </div>
+                    <div style="float:left; width: 99%">
+                        <input class="button" type="submit" value="Post Chatter" onclick="addChatterCommentJS();"></input>
+                    </div>
+                </div>
+        
+        </apex:outputPanel> 
+        </apex:form>
+    </body> 
+    
+</apex:page>

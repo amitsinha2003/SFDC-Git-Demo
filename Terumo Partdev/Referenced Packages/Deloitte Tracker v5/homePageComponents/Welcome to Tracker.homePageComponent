@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;span style=&quot;font-family: arial,helvetica,sans-serif; font-size: 14px;&quot;&gt;&lt;b&gt;Welcome to Tracker!&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Please click &lt;b&gt;&lt;a href=&quot;https://c.eu5.content.force.com/servlet/servlet.FileDownload?file=015240000000XiP&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;&lt;/b&gt; for a mini user-guide to get you started.&lt;/span&gt;&lt;/span&gt;&lt;br style=&quot;font-family: arial, helvetica, sans-serif; font-size: 11px;&quot;&gt;
+&lt;br style=&quot;font-family: arial, helvetica, sans-serif; font-size: 11px;&quot;&gt;
+&lt;b&gt;Recommended actions:&lt;/b&gt;&lt;br style=&quot;font-family: arial, helvetica, sans-serif; font-size: 11px;&quot;&gt;
+&lt;span style=&quot;font-family: arial,helvetica,sans-serif; font-size: 11px;&quot;&gt;• &lt;/span&gt;&lt;b&gt;U&lt;/b&gt;&lt;span style=&quot;color: black; font-family: arial,helvetica,sans-serif; font-size: 11px;&quot;&gt;&lt;b&gt;pload a picture &lt;/b&gt;to your Chatter profile. Also &lt;b&gt;complete the “Contact” and “About You” &lt;/b&gt;sections&lt;/span&gt;&lt;br style=&quot;font-family: arial, helvetica, sans-serif; font-size: 11px;&quot;&gt;
+&lt;span style=&quot;font-family: arial,helvetica,sans-serif; font-size: 11px;&quot;&gt;• &lt;/span&gt;&lt;span style=&quot;color: black; font-family: arial,helvetica,sans-serif; font-size: 11px;&quot;&gt;Start &lt;b&gt;following &lt;/b&gt;people or groups found within the Chatter tab.&lt;/span&gt;&lt;br style=&quot;font-family: arial, helvetica, sans-serif; font-size: 11px;&quot;&gt;
+&lt;span style=&quot;font-family: arial,helvetica,sans-serif; font-size: 11px;&quot;&gt;• &lt;/span&gt;&lt;span style=&quot;color: black; font-family: arial,helvetica,sans-serif; font-size: 11px;&quot;&gt;To stay connected on the move and get immediate alerts, &lt;b&gt;download the Salesforce1 app &lt;/b&gt;(from your mobile app store).&lt;/span&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Tracker: Object used to generate status reports</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Budget_Indicator__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents the visual indicator of budget status based on value selected</description>
+        <externalId>false</externalId>
+        <formula>IMAGE( 
+CASE(   Budget_Status__c  , 
+&quot;Within Budget&quot;, &quot;/img/samples/light_green.gif&quot;, 
+&quot;Over Budget &lt; 25%&quot;, &quot;/img/samples/light_yellow.gif&quot;, 
+&quot;Over Budget &gt; 25%&quot;, &quot;/img/samples/light_red.gif&quot;, 
+&quot;/s.gif&quot;), 
+&quot;status color&quot;)</formula>
+        <inlineHelpText>Represents the visual indicator of budget status based on value selected</inlineHelpText>
+        <label>Budget Indicator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Budget_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Budget Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the Budget Status of the related project/sprint at this point in time 
+Green = Within Budget
+Yellow = &lt; 25% Over Budget
+Red = &gt;25% Over Budget</inlineHelpText>
+        <label>Budget Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Within Budget</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Over Budget &lt; 25%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Over Budget &gt; 25%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Key_Accomplishments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Key Accomplishments</description>
+        <externalId>false</externalId>
+        <label>Key Accomplishments</label>
+        <length>2500</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Next_Steps__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Next Steps</description>
+        <externalId>false</externalId>
+        <label>Next Steps</label>
+        <length>2500</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Overall_Status_Indicator__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Visual indicator of the status based on value selected</description>
+        <externalId>false</externalId>
+        <formula>IMAGE( 
+CASE( Overall_Status__c,
+&quot;On Track&quot;, &quot;/img/samples/light_green.gif&quot;, 
+&quot;At Risk&quot;, &quot;/img/samples/light_yellow.gif&quot;,
+&quot;Off Track&quot;, &quot;/img/samples/light_red.gif&quot;, 
+&quot;/s.gif&quot;), 
+&quot;status color&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Represents the visual indicator of status based on value selected</inlineHelpText>
+        <label>Overall Status Indicator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overall_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the overall status of the related project sprint</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the overall status of the related project/sprint at this point in time
+Green = On Track
+Yellow = At Risk
+Red = Off Track</inlineHelpText>
+        <label>Overall Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>On Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Off Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Period_Ending_On__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The end of the reporting period for which this status report is created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the end of the period for which this status report is created</inlineHelpText>
+        <label>Period Ending On</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Period_Starting_On__c</fullName>
+        <defaultValue>Today()-7</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The start of the reporting period for which this status report is created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the start of the period for which this status report is created</inlineHelpText>
+        <label>Period Starting On</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Project this Status Report belongs to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status Reports will always belong to a Project</inlineHelpText>
+        <label>Project</label>
+        <referenceTo>TKR_Project__c</referenceTo>
+        <relationshipLabel>Status Reports</relationshipLabel>
+        <relationshipName>Status_Reports</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Indicator__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents the visual indicator of resource status based on value selected</description>
+        <externalId>false</externalId>
+        <formula>IMAGE( 
+CASE(  Resource_Status__c , 
+&quot;Green&quot;, &quot;/img/samples/light_green.gif&quot;, 
+&quot;Amber&quot;, &quot;/img/samples/light_yellow.gif&quot;, 
+&quot;Red&quot;, &quot;/img/samples/light_red.gif&quot;, 
+&quot;/s.gif&quot;), 
+&quot;status color&quot;)</formula>
+        <inlineHelpText>Represents the visual indicator of resource status based on value selected</inlineHelpText>
+        <label>Resource Indicator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Resource Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the overall Resourcing Status of the related project/sprint at this point in time 
+Green = On Track 
+Amber = At Risk 
+Red = Off Track</inlineHelpText>
+        <label>Resource Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Amber</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Scope_Indicator__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Visual indicator of the Scope status based on value selected</description>
+        <externalId>false</externalId>
+        <formula>IMAGE( 
+CASE(  Scope_Status__c , 
+&quot;Green&quot;, &quot;/img/samples/light_green.gif&quot;, 
+&quot;Amber&quot;, &quot;/img/samples/light_yellow.gif&quot;, 
+&quot;Red&quot;, &quot;/img/samples/light_red.gif&quot;, 
+&quot;/s.gif&quot;), 
+&quot;status color&quot;)</formula>
+        <inlineHelpText>Represents the visual indicator of scope status based on value selected</inlineHelpText>
+        <label>Scope Indicator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Scope_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Scope Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the overall Scope Status of the related project/sprint at this point in time 
+Green = On Track 
+Amber = At Risk 
+Red = Off Track</inlineHelpText>
+        <label>Scope Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Amber</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sprint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Sprint the Status reports is related to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Note: Setting the Sprint value will automatically filter out User Stories (based on Allocated Sprint) and Milestones that do not have a corresponding Sprint value assigned to them.</inlineHelpText>
+        <label>Sprint</label>
+        <referenceTo>TKR_Sprint__c</referenceTo>
+        <relationshipLabel>Status Reports</relationshipLabel>
+        <relationshipName>Status_Reports</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status_Summary__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status Summary</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Overall status summary for this status report / period</inlineHelpText>
+        <label>Status Summary</label>
+        <length>2500</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <label>Status Report</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Project__c</columns>
+        <columns>NAME</columns>
+        <columns>Period_Starting_On__c</columns>
+        <columns>Period_Ending_On__c</columns>
+        <columns>Overall_Status_Indicator__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Status Reports Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Status Reports</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Sprint__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Period_Starting_On__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Period_Ending_On__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Overall_Status_Indicator__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Sprint__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Period_Starting_On__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Period_Ending_On__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Overall_Status_Indicator__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Sprint__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Period_Starting_On__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Period_Ending_On__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Overall_Status_Indicator__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Sprint__c</searchFilterFields>
+        <searchFilterFields>Period_Starting_On__c</searchFilterFields>
+        <searchFilterFields>Period_Ending_On__c</searchFilterFields>
+        <searchFilterFields>Overall_Status__c</searchFilterFields>
+        <searchResultsAdditionalFields>Overall_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Period_Ending_On__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Period_Starting_On__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sprint__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Generate_Status_Report</fullName>
+        <availability>online</availability>
+        <description>Tracker Status Report Generator</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Generate Status Report</masterLabel>
+        <openType>sidebar</openType>
+        <page>StatusReportPage1</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

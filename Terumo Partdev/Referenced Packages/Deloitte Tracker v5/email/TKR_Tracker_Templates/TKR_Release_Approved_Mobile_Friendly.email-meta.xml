@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>A release has been approved - Mobile Friendly</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>TKR Release Approved - Mobile Friendly</name>
+    <style>none</style>
+    <subject>{!Release__c.Name} release has been approved</subject>
+    <type>custom</type>
+</EmailTemplate>

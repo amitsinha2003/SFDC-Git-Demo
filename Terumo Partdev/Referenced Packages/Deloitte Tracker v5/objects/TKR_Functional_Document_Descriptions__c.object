@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Tracker: Value of the Description text used in the Document Generator &gt; Functional Design Document</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Value__c</fullName>
+        <defaultValue>&quot;The purpose of this document is to specify the details (acceptance criteria) for a specific set of requirements (user stories). The format is that of SCRUM used for Agile projects.&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Tracker: Value of the Document Description</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Text used in the Functional Design Document description</inlineHelpText>
+        <label>Value</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>TKR Functional Document Descriptions</label>
+    <visibility>Public</visibility>
+</CustomObject>

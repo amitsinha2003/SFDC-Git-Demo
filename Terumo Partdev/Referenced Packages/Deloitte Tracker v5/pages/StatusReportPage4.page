@@ -1,0 +1,230 @@
+<!-- 
+Copyright (c) 2011, salesforce.com, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, 
+    this list of conditions and the following disclaimer in the documentation 
+    and/or other materials provided with the distribution.
+    * Neither the name of the salesforce.com, Inc. nor the names of its contributors 
+    may be used to endorse or promote products derived from this software 
+    without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!-- Code modified by Asim Maqbool -->
+<apex:page standardController="DDTracker__TKR_Status_Reports__c" extensions="DDTracker.TKR_StatusReportController" id="thePage" action="{!populatePItems}">
+  
+    <style>
+       .myLabelClass {
+           color: #4A4A56;
+           font-size: 91%;
+           font-weight: bold;
+           font-family: Arial, Helvetica, sans-serif;
+           border-collapse: separate;
+           border-spacing: 2px;
+       }
+    </style>
+    <apex:form >
+      
+        <apex:pageBlock title="Status Report Details" rendered="{!statusReport}">
+             
+            <table width="100%">
+                <tr width="100%">
+                    <td width="25%">
+                        <apex:outputLabel value="Name" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.Name}"/>    
+                    </td>
+                    <td width="25%"/>
+                    <td width="25%"/>                   
+                </tr>
+                <tr/>
+                <tr width="100%">
+                    <td width="25%">
+                        <apex:outputLabel value="Period Starting On" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.DDTracker__Period_Starting_On__c}"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputLabel value="Period Ending On" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.DDTracker__Period_Ending_On__c}"/>    
+                    </td>
+                </tr>
+                <tr/>
+                <tr width="100%">                   
+                    <td width="25%">
+                        <apex:outputLabel value="Overall Status Indicator" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:image value="{!statusIndURL}" />
+                        <!-- apex:image value="{!statusIndURL}" width="30" height="15"/ -->
+                    </td>
+                    <td width="25%">
+                        <apex:outputLabel value="Project Name" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.DDTracker__Project__c}"/>
+                    </td> 
+                </tr>
+                <tr/>
+                <tr width="100%">
+                    <td width="25%">
+                        <apex:outputLabel value="Overall Project Status" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.DDTracker__Overall_Status_Indicator__c}"/>
+                        <!-- apex:image value="{!proj}" width="30" height="15"/-->    
+                    </td>
+                    <td width="25%">
+                        <apex:outputLabel value="Scope" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.DDTracker__Scope_Indicator__c}"/>
+                        <!-- apex:image value="{!scope}" width="30" height="15"/-->
+                    </td>
+                </tr>
+                <tr width="100%">   
+                    <td width="25%">        
+                        <apex:outputLabel value="Budget" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.DDTracker__Budget_Indicator__c}"/>
+                        <!--apex:image value="{!budget}" width="30" height="15"/ -->
+                    </td>
+                    <td width="25%">            
+                        <apex:outputLabel value="Resources" styleClass="myLabelClass"/>
+                    </td>
+                    <td width="25%">
+                        <apex:outputField value="{!stReport.DDTracker__Resource_Indicator__c}" />
+                        <!-- apex:image value="{!resrc}" width="30" height="15"/ -->
+                    </td>   
+                </tr>
+            </table>        
+        </apex:pageBlock>
+        <apex:pageBlock title="Status Summary" rendered="{!statusSmry}">
+            <apex:outputField value="{!stReport.DDTracker__Status_Summary__c}"/>
+        </apex:pageBlock>
+        <apex:pageBlock title="Key Accomplishments" rendered="{!accomplishments}">
+            <apex:outputField value="{!stReport.DDTracker__Key_Accomplishments__c}"/>
+        </apex:pageBlock>
+        <apex:pageBlock title="Next Steps" rendered="{!nextSteps}">
+            <apex:outputField value="{!stReport.DDTracker__Next_Steps__c}"/>
+        </apex:pageBlock>
+        
+        <!-- User Stories Table--> 
+       <apex:pageBlock title="User Story Summary" rendered="{!sumOfDel}">
+            <apex:pageBlockTable value="{!deliverablesList}" var="del" rendered="{!deliverablesList.size>0}" columnsWidth="8%,12%,12%,45%,15%,8%">
+                <apex:column value="{!del.Name}" headerValue="US-Ref"/>
+                     <apex:column value="{!del.DDTracker__Development_Stage__c}" headerValue="Status"/>
+                     <apex:column value="{!del.DDTracker__Allocated_Sprint__c}" headerValue="Allocated Sprint"/>
+                     <apex:column value="{!del.DDTracker__Full_User_Story__c}" headerValue="Full User Story"/>                  
+                     <apex:column value="{!del.DDTracker__Planned_Release__c}" headerValue=" Project Release"/>
+                     <apex:column value="{!del.DDTracker__Story_Points_Total__c}" headerValue="  Story Points Total"/>
+           </apex:pageBlockTable>
+           <apex:pageblockSection title="Usert Stories" rendered="{!deliverablesList.size=0}">
+                <apex:outputText value="No User Stories logged for the related sprint" />                
+            </apex:pageblockSection>
+            <br/>
+            
+               </apex:pageBlock>
+               
+               <!-- Milestones table --> 
+                <apex:pageBlock title="Milestone Summary" rendered="{!delOfMileStones}">
+            
+               <apex:pageBlockTable value="{!milestoneList}" var="mst" rendered="{!milestoneList.size>0}" columnsWidth="45%,10%,15%,10%,12%,8%">
+                <apex:column value="{!mst.Name}" headerValue="Milestone Summary"/>
+                <apex:column value="{!mst.DDTracker__Target_Completion_Date__c}" headerValue="Target Completion Date"/>
+                <apex:column value="{!mst.sprint__r.Name}" headerValue="Sprint"/> 
+                <apex:column value="{!mst.DDTracker__Actual_Completion_Date__c}" headerValue="Actual Completion Date"/>
+                <apex:column value="{!mst.DDTracker__Status__c}" headerValue="Status"/>
+                <apex:column headerValue="Alert">  
+                    <apex:image value="https://{!serverURL}/servlet/servlet.ImageServer?id={!mst.DDTracker__Alert_Image_Map__c}&oid={!orgId}"/>
+                </apex:column> 
+            </apex:pageBlockTable>
+            <apex:pageblockSection title="MileStones" rendered="{!milestoneList.size=0}">
+                <apex:outputText value="No milestones logged for the related sprint" />                
+            </apex:pageblockSection>   
+                           
+        </apex:pageBlock>
+
+        <!-- Issues Table -->
+        <apex:pageBlock title="Issue Summary" rendered="{!showIssues}">
+            <apex:pageBlockTable value="{!issuesList}" var="issue" rendered="{!issuesList.size>0}" columnsWidth="8%,40%,10%,10%,12%,12%,8%">
+                <apex:column value="{!issue.Name}" headerValue="Issue-Ref"/>
+                <apex:column value="{!issue.DDTracker__Title__c}" headerValue="Summary"/>
+           <apex:column value="{!issue.DDTracker__Date_Raised__c}" headerValue="Date Raised"/>
+           <apex:column value="{!issue.DDTracker__Closed_Date__c}" headerValue="Closed Date"/>
+            <apex:column value="{!issue.DDTracker__Probability__c}" headerValue="Risk Probability"/>
+               <apex:column value="{!issue.DDTracker__Impact_CC__c}" headerValue="Impact/Likelihood"/>
+                <apex:column headerValue="Issue Icon">  
+                <!-- <apex:image url="{!issue.Risk_Icon_Image_Map__c}"/> -->
+                 <apex:image value="https://{!serverURL}/servlet/servlet.ImageServer?id={!issue.DDTracker__Risk_Icon_Image_Map__c}&oid={!orgId}"/>
+                     </apex:column>
+             
+            </apex:pageBlockTable>
+            <apex:pageblockSection rendered="{!issuesList.size=0}">
+                <apex:outputText value="No Issues included in the filtered results" />                
+            </apex:pageblockSection>
+        </apex:pageBlock>
+        
+        
+        <!-- Risks tables -->
+        <apex:pageBlock title="Risk Summary" rendered="{!showRisks}">
+            <apex:pageBlockTable value="{!risksList}" var="risk" rendered="{!risksList.size>0}" columnsWidth="8%,40%,10%,10%,12%,12%,8%">
+                <apex:column value="{!risk.Name}" headerValue="Risk-Ref"/>
+            <apex:column value="{!risk.DDTracker__Title__c}" headerValue="Summary"/>
+           <apex:column value="{!risk.DDTracker__Date_Raised__c}" headerValue="Date Raised"/>
+           <apex:column value="{!risk.DDTracker__Closed_Date__c}" headerValue="Closed Date"/>
+            <apex:column value="{!risk.DDTracker__Probability__c}" headerValue="Risk Probability"/>
+             <apex:column value="{!risk.DDTracker__Impact_CC__c}" headerValue="Impact/Likelihood"/>
+              <apex:column headerValue="Risk Icon">  
+                <!-- <apex:image url="{!risk.Risk_Icon_Image_Map__c}"/>  -->
+                 <apex:image value="https://{!serverURL}/servlet/servlet.ImageServer?id={!risk.DDTracker__Risk_Icon_Image_Map__c}&oid={!orgId}"/>
+                     </apex:column>
+                      
+            </apex:pageBlockTable>
+            <apex:pageblockSection rendered="{!risksList.size=0}">
+                <apex:outputText value="No Risks included in the filtered results" />             
+            </apex:pageblockSection>
+        </apex:pageBlock>
+        
+        
+        
+        <!-- Dashboard link Render -->
+        <apex:pageBlock title="Dashboard" rendered="{!dispDashboard}">
+            <apex:outputLink value="{!dashboardURL}" target="_blank">Click here to view the Dashboard</apex:outputLink>
+        </apex:pageBlock>
+        
+        <!-- Buttons --> 
+        <div>
+            <apex:commandButton value="Back" action="{!step2}"/>
+           <!-- <apex:commandButton value="Generate Word Doc" action="{!generateWord}"/>
+            <apex:commandButton value="Generate PDF" action="{!generatePDF}"  /> -->
+               
+                <apex:commandLink value="Generate Word Doc" action="/apex/DDTracker__GenerateStatusReportInWord" styleClass="btn" immediate="true"
+                target="_blank" style="text-decoration:none" />
+       
+                <apex:commandLink value="Generate PDF" action="/apex/DDTracker__GenerateStatusReportInPDF" styleClass="btn" immediate="true"
+                target="_blank" style="text-decoration:none" />
+                        
+        </div>     
+    </apex:form>
+</apex:page>

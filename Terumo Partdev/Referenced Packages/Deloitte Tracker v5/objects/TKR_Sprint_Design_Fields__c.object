@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Tracker: The fields used in the Sprint Design section for the Document Generator &gt; Technical Design Document</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Value__c</fullName>
+        <defaultValue>&quot;Overview__c Data_Model__c Fields__c Objects__c Page_Layouts__c Apex_Classes__c Visualforce_Pages__c Apex_Trigger__c Other_Components__c&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Tracker: Value of the fields used in the Sprint Design of the Technical Design Document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The fields used in the Sprint Design of the Technical Design Document</inlineHelpText>
+        <label>Value</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>TKR Sprint Design Fields</label>
+    <visibility>Public</visibility>
+</CustomObject>

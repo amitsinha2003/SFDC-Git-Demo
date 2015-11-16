@@ -1,0 +1,138 @@
+<apex:page showHeader="true" standardStylesheets="true" showChat="false" name="TKR_About_Tracker" sidebar="true" readOnly="true">
+    <head>
+        
+        <style>
+        
+     #SprintLink{
+                padding-top: 10px;
+                padding-bottom: 20px;
+            } 
+     .button {
+            position:relative;
+            align: right;
+            background: #009DDC;
+            background-color: #009DDC;
+            -moz-border-radius:0px;
+            -webkit-border-radius:0px;
+            border-radius:3px;
+            border:0px solid #268a16;
+            display:inline-block;
+            color: #FFFFFF;
+            font-family:arial;
+            font-size:14px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+        }
+        .button:hover {
+            color: #FFFFFF;
+            background: #8de342;
+            background-color:#5cb811;
+            text-decoration: none;
+        }
+        .button:active {
+            position:relative;
+            top:1px;
+        }
+      
+            .column{
+                min-height:200px;
+                background:#fff;
+                float:left;
+                border:Solid 1px #969696;
+                border-radius :3px;
+                -moz-border-radius:3px;
+                -webkit-border-radius:3px;
+                margin:10px 0 10px 0;
+            }
+            .planningBlock{
+                width:350px;
+                min-height:100px;
+                background:#fff;
+                position:fixed;
+                z-index:99999999;
+                float:left;
+                border:Solid 1px #969696;
+                border-radius :3px;
+                -moz-border-radius:3px;
+                -webkit-border-radius:3px;
+                margin:10px 0px 10px 0;
+                padding:10px 10px 10px 10px;
+                font-family:arial; 
+                font-size:0.9em;
+            }
+            
+            .column .dragbox h2{
+                margin:0;
+                font-size:12px;
+                padding:5px;
+                background:#000000;
+                border-bottom:1px solid #eee;
+            }
+           
+          
+            .column  .placeholder{
+                background: #f9f9f9;
+                border:1px dashed #ddd;
+                min-height:12000px
+            }
+            
+            
+            .color-green  {background:#8dc100;}
+            .color-orange {background:#F28705;}
+            .color-yellow {background:#f2bc00;}
+            .color-pink   {background:#F28280;}
+            .color-blue   {background:#52AED9;}
+            .color-white  {background:#A7F205;}
+            .color-sky    {background:#54D500;}
+            .ColumnHeader {font-family:Arial;font-size:1.2em;}
+            BODY {background-attachment: fixed;}
+            
+        </style>
+         <script>
+          
+        function CloseAndRefresh(){
+          window.opener.location.href="/{!$CurrentPage.parameters.id}";
+          window.top.close(); 
+          // window.open('', '_self', ''); 
+         // window.close();
+        }
+             
+         </script>
+    </head>
+    <body background="{!URLFOR($Resource.SFDCback)}">
+    
+    <div class="color-blue" id="toptitle1" style="width:100%;height:40px;color:white;line-height: 40px;text-align:center;vertical-align:middle;font-size:22px;font-family:arial;">
+        <strong>About Tracker</strong>
+        </div>
+        <div class="logo"><br/>
+        <img src="{!URLFOR($Resource.mobile,'/images/Tracker_logov2.gif')}" /><br/> <br/> 
+        </div>
+        <div id="title"><span class="ColumnHeader">
+        Installed Version: <apex:outputLabel value="{!$Label.ddtracker__TKR_Version}"></apex:outputLabel>  <br/><br/>
+        
+        <ul><b>Supporting documentation</b><br/>
+        <li>Installation guide -  available <a href="https://deloitte.my.salesforce.com/sfc/p/30000000op6v/a/13000000QCkF/NaUoWHTM_LvuuWQaCS.gS0tFGnbaitvPJgzei7trkqE" target="_blank" alt="Tracker Installation guide">here</a> </li>
+        <li>Administrators guide -  available <a href="https://deloitte.my.salesforce.com/sfc/p/30000000op6v/a/13000000QDEZ/zCJoQ8WubEujH9JACEJgdZW0kQzNXaerwfX2wSu2tMI" target="_blank" alt="Tracker Administrators guide">here</a> </li>
+        <li>User guide - The latest version of the Tracker User Guide (for end users/project teams) is available <a href="https://deloitte.my.salesforce.com/sfc/p/30000000op6v/a/13000000QCzt/kdXeuPv2bLsRYdAagPKDNEv6sG840AlKuwbKzOE558M" target="_blank" alt="Tracker - User Guide">here</a>. This guide include details of the agile approach that Tracker is aligned to.</li>
+        <li>New Features/Overview - An overview and highlight of the latest version of Tracker can be found <a href="https://deloitte.my.salesforce.com/sfc/p/30000000op6v/a/13000000QCpy/wFC27AoFVgf_OJdx0G5HdnSAJMarUgfiAjGRBT9lpik" target="_blank" alt="Tracker - New Features Overview">here</a> </li> 
+        </ul>
+        <br/>
+        Full <a href="https://deloitte.my.salesforce.com/sfc/p/30000000op6v/a/a0000000MINS/6pQ89oZ.YdkawcA72WUr2by0A26.kkwK8EoQW4XgqL4" target="_blank" alt="Tracker IP / T&Cs contract">Terms and Conditions available here</a>. <br/>
+        For more details/assistance, please contact Tracker Admin team on: UKDeloitteTracker@deloitte.co.uk
+        
+            
+      
+        
+        
+        <p>
+        © Deloitte Digital <br/>
+        Part of Deloitte LLP, a limited liability partnership registered in England and Wales with registered number OC303675.
+    </p>
+        
+</span></div>
+    </body> 
+    
+ 
+ 
+</apex:page>

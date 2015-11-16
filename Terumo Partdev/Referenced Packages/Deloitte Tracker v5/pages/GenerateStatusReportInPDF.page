@@ -1,0 +1,387 @@
+<apex:page standardController="DDTracker__TKR_Status_Reports__c" renderAs="PDF" extensions="DDTracker.TKR_StatusReportController">
+  <apex:form >
+           <apex:inputHidden value="{!serverURL}"/>
+           <apex:inputHidden value="{!orgId}"/>
+<html>
+    <head>
+    <style type="text/css" media="print">
+        body{
+            font-family: Arial Unicode MS;
+            font-size:11px;
+        }
+        td.header1 {
+            font-family: Arial Unicode MS;
+            font-size: 16px;
+            font-weight: bolder;
+            color: black;
+            border-bottom:solid #230470;
+            padding-left:6px;
+            margin-bottom:2px;
+         }
+         td.valField{
+            text-align:left;
+            padding:2px;            
+         }
+         table.tabVal{
+            border-color: black;
+            border-style: solid;
+           
+            border-width: thin;
+            border-spacing: 0px;
+         
+         }
+         table.tabVal td{
+            border-width: thin;
+            padding: 0px;
+            border-style: solid;
+            border-color: black;
+            background-color: white;
+         }
+         table.tabVal th{
+            border-width: thin;
+            padding: 0px;
+            border-style: solid;
+            border-color: black;
+            background-color: white;
+         
+         }
+         table.rPort {
+            border-width: 1px;
+            border-spacing: 0px;
+            border-style: solid;
+            border-color: #C0C0C0;
+            border-collapse: separate;
+            background-color: white;
+        }
+         table.rPort td {
+            border-width: 1px;
+            padding: 0px;
+            border-style: solid;
+            border-color: #BBBABB;
+            background-color: white;
+        }
+        @media print
+        {
+            table {page-break-inside:auto }
+            tr    { page-break-inside:avoid; page-break-after:auto }
+            thead {display:table-header-group }
+        }
+        
+    </style>
+    </head>
+    <body class="body">
+        <table width="100%" border="0">
+            <tr>
+                <td colspan="4" align="center" style="color:black;font-weight:bolder;"><h1><font size="4">Project Status Report</font></h1></td>
+            </tr>
+        </table>        
+        <apex:outputPanel rendered="{!statusReport}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                 <td class="header1" colspan="4" valign="bottom"><b>Status Report Details</b></td> 
+                </tr>
+            </table>
+            <br/>
+            <table width="100%" border="1" style="border-collapse: collapse" class="rPort">
+                <tr>
+                    <td width="25%" style="padding:3px;font-weight:bolder;">Name:</td>
+                    <td width="75%" colspan = "3" align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:outputField value="{!stReport.Name}"/>
+                    </td>                   
+                </tr>
+                <tr/>
+                <tr width="100%">
+                    <td width="25%" style="padding:3px;font-weight:bolder;">Period Starting On:</td>
+                    <td width="25%" align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:outputField value="{!stReport.DDTracker__Period_Starting_On__c}"/>
+                    </td>
+                    <td width="25%" style="padding:3px;font-weight:bolder;">Period Ending On:</td>
+                    <td width="25%" align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:outputField value="{!stReport.DDTracker__Period_Ending_On__c}"/>
+                    </td>
+                </tr>
+                <tr/>
+                <tr width="100%">                   
+                    <td style="padding:3px;font-weight:bolder;">Overall Status Indicator:</td>
+                    <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:image value="{!statusIndURL}" />
+                    </td>
+                    <td style="padding:3px;font-weight:bolder;">Project Name:</td>
+                    <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:outputField value="{!stReport.DDTracker__Project__c}"/>
+                    </td>
+                </tr>
+                <tr/>
+                <tr width="100%">
+                    <td style="padding:3px;font-weight:bolder;">Overall Project Status:</td>
+                    <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:outputField value="{!stReport.DDTracker__Overall_Status_Indicator__c}"/>
+                        <!-- apex:image value="{!proj}" width="30" height="15"/  -->
+                    </td>
+                    <td style="padding:3px;font-weight:bolder;">Scope Status:</td>
+                    <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:outputField value="{!stReport.DDTracker__Scope_Indicator__c}"/>
+                        <!-- apex:image value="{!scope}" width="30" height="15"/ -->
+                    </td>
+                </tr>
+                <tr width="100%">   
+                    <td style="padding:3px;font-weight:bolder;">Budget Status:</td>
+                    <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                       <apex:outputField value="{!stReport.DDTracker__Budget_Indicator__c}"/>
+                       <!-- apex:image value="{!budget}" width="30" height="15"/ -->
+                    </td>
+                    <td style="padding:3px;font-weight:bolder;">Resource Status:</td>
+                    <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                        <apex:outputField value="{!stReport.DDTracker__Resource_Indicator__c}"/>
+                        <!-- apex:image value="{!resrc}" width="30" height="15"/ -->
+                    </td>   
+                </tr>
+            </table>     
+        </apex:outputPanel>     
+        <apex:outputPanel rendered="{!statusSmry}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td class="header1" colspan="4" valign="bottom"><b>Status Report Summary</b></td>
+                </tr>
+            </table>
+            <br/>
+            <apex:outputField value="{!stReport.DDTracker__Status_Summary__c}"/>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!accomplishments}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td class="header1" colspan="4" valign="bottom"><b>Key Accomplishments</b></td>
+                </tr>
+            </table>
+            <br/>
+            <apex:outputField value="{!stReport.DDTracker__Key_Accomplishments__c}"/>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!nextSteps}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td class="header1" colspan="4" valign="bottom"><b>Next Steps</b></td>
+                </tr>
+            </table>
+            <br/>
+            <apex:outputField value="{!stReport.DDTracker__Next_Steps__c}"/>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!sumOfDel}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td class="header1" colspan="4" valign="bottom"><b>User Story Summary</b></td>
+                </tr>
+            </table>
+            <br/>
+            <apex:outputPanel rendered="{!deliverablesList.size>0}">
+                <table width="100%" border="0">
+                     <!--   <tr>
+                        <td colspan="4" align="left" style="color:#b04d59"><h4><font size="2" color="#b04d59">User Stories</font></h4></td>
+                    </tr>-->
+                </table>
+                <table width="100%" border="1" style="border-collapse: collapse;margin-left:2px;" class="tabVal">
+                    <tr>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">US-Ref</th>
+                        <th width="20%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Full User Story</th>                       
+                        <th width="20%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Allocated Sprint</th>
+                          <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Story Points</th>
+                          <th width="10%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Status</th>
+                        <th width="20%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Project Release</th>
+                      
+                    </tr>
+                    <apex:repeat value="{!deliverablesList}" var="del">
+                        <tr>
+                            <td style="padding:3px;"><apex:outputText value="{!del.Name}"/></td>
+                            <td style="padding:3px;"><apex:outputText value="{!del.DDTracker__Full_User_Story__c}"/></td>
+                            <td style="padding:3px;"> <apex:outputText value="{!del.Allocated_Sprint__r.Name}"/></td>
+                            <td style="padding:3px;"> <apex:outputText value="{!del.DDTracker__Story_Points_Total__c}"/></td>   
+                            <td style="padding:3px;"> <apex:outputText value="{!del.DDTracker__Development_Stage__c}"/></td>
+                            <td style="padding:3px;"><apex:outputText value="{!del.DDTracker__Planned_Release__c}"/></td>
+                            
+                                      
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!deliverablesList.size=0}">
+                <table width="100%" border="0">
+                  <!--   <tr>
+                        <td colspan="4" align="left" style="color:#b04d59"><h4><font size="2" color="#b04d59">User Stories</font></h4></td>
+                    </tr> -->
+                </table>
+                <apex:outputText value="No user story logged for the related sprint" />                
+            </apex:outputPanel>
+            <br/>
+               </apex:outputPanel>
+       <apex:outputPanel rendered="{!delOfMileStones}">
+            <apex:outputPanel rendered="{!milestoneList.size>0}">
+                <table width="100%" border="0">
+                    <tr>
+                        <td colspan="4" align="left" ><h4><font size="2" >Milestone Summary</font></h4></td>
+                    </tr>
+                </table>
+                <table width="100%" border="1" style="border-collapse: collapse;margin-left:2px;" class="tabVal">
+                    <tr>
+                        <th width="25%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Milestone Summary</th>                        
+                         <th width="20%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Target Completion Date</th>  
+                     
+                           <th width="20%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Sprint</th> 
+                        <th width="20%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Actual Completion Date</th>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Status</th>                      
+                          <th width="20%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Alert</th> 
+                    </tr>
+                    <apex:repeat value="{!milestoneList}" var="mst">
+                        <tr>
+                            <td style="padding:3px;"><apex:outputText value="{!mst.Name}"/></td>
+                            <td style="padding:3px;"><apex:outputText value="{0, date, MMMM d, yyyy}"><apex:param value="{!mst.DDTracker__Target_Completion_Date__c}"/></apex:outputText></td> 
+                             
+                       <td style="padding:3px;"><apex:outputText value="{!mst.sprint__r.Name}"/></td>
+                            <td style="padding:3px;"><apex:outputText value="{0, date, MMMM d, yyyy}"><apex:param value="{!mst.DDTracker__Actual_Completion_Date__c}"/></apex:outputText></td>
+                             <td style="padding:3px;"><apex:outputText value="{!mst.DDTracker__Status__c}"/></td> 
+                             <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">  
+                             <apex:inputHidden value="{!mst.DDTracker__Alert_Image_Map__c}"/>
+                             <apex:inputHidden value="{!UnqiueURL}"/>
+                             <apex:inputHidden value="{!serverURL}"/>
+                             
+                             <img src="/servlet/servlet.ImageServer?id={!mst.DDTracker__Alert_Image_Map__c}&oid={!$organization.id}" width="18" height="18" />
+                             <!-- <apex:image url="{!serverURL}/servlet/servlet.ImageServer?id={!mst.DDTracker__Alert_Image_Map__c}&oid={!$organization.id}"  width="18" height="18"/> -->
+                            
+                             </td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+      
+       <apex:outputPanel rendered="{!milestoneList.size=0}">
+                <table width="100%" border="0">
+                    <tr>
+                        <td colspan="4" align="left" style=""><h4><font size="2" color="#b04d59">MileStones</font></h4></td>
+                    </tr>
+                </table>
+                <apex:outputText value="No milestones logged for the related sprint" />                
+            </apex:outputPanel> 
+      
+        <br/>
+                   
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!showIssues}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <!--  <tr>
+                    <td><br/></td>
+                </tr>-->
+                <tr>
+                    <td class="header1" colspan="4" valign="bottom"><b>Issue Summary</b></td>
+                </tr>
+            </table>
+            <br/>
+            <apex:outputPanel rendered="{!issuesList.size>0}">
+                <table width="100%" border="1" style="border-collapse: collapse;margin-left:2px;" class="tabVal">
+                    <tr>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Issue-Ref</th>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Summary</th>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Date Raised</th>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Closed Date</th>                        
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Issue Probability</th>  
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Impact/Likelihood</th>  
+                         <th width="10%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Issue Score</th> 
+                             <th width="10%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Issue Icon</th>              
+                    </tr>
+                    <apex:repeat value="{!issuesList}" var="issue">
+                        <tr>
+                            <td style="padding:3px;"><apex:outputText value="{!issue.Name}"/></td>
+                            <td style="padding:3px;"><apex:outputText value="{!issue.DDTracker__Title__c}"/></td>
+                            <td style="padding:3px;"><apex:outputText value="{0, date, MMMM d, yyyy}"><apex:param value="{!issue.DDTracker__Date_Raised__c}"/></apex:outputText></td>
+                            <td style="padding:3px;"><apex:outputText value="{0, date, MMMM d, yyyy}"><apex:param value="{!issue.DDTracker__Closed_Date__c}"/></apex:outputText></td>                       
+                            <td style="padding:3px;"><apex:outputText value="{!issue.DDTracker__Probability__c}"/></td>  
+                             <td style="padding:3px;"><apex:outputText value="{!issue.DDTracker__Impact_CC__c}"/></td>  
+                             <td style="padding:3px;"><apex:outputText value="{!issue.DDTracker__Weighting__c}"/></td>  
+                           <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                            <apex:inputHidden value="{!issue.DDTracker__Risk_Icon_Image_Map__c}"/>
+                             <img src="/servlet/servlet.ImageServer?id={!issue.DDTracker__Risk_Icon_Image_Map__c}&oid={!orgId}" width="18" height="18"/>
+                             <!-- <apex:image value="https://{!serverURL}/servlet/servlet.ImageServer?id={!issue.DDTracker__Risk_Icon_Image_Map__c}&oid={!orgId}" width="18" height="18"/> -->
+                             </td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!issuesList.size=0}">
+                <apex:outputText value="No issues included in filtered results" />                
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!showRisks}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td class="header1" colspan="4" valign="bottom"><b>Risk Summary</b></td>
+                </tr>
+            </table>
+            <br/>
+            <apex:outputPanel rendered="{!risksList.size>0}">
+                <table width="100%" border="1" style="border-collapse: collapse;margin-left:2px;" class="tabVal">
+                    <tr>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Risk-Ref</th>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Summary</th>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Date Raised</th>
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Closed Date</th>                        
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Issue Probability</th>  
+                        <th width="15%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Impact/Likelihood</th>  
+                         <th width="10%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Risk Score</th> 
+                         <th width="10%" style="background-color:#230470;color:#ffffff;font-weight:bold;padding:3px;">Risk Score</th> 
+                                                                        
+                    </tr>
+                    <apex:repeat value="{!risksList}" var="risk">
+                        <tr>
+                            <td style="padding:3px;"><apex:outputText value="{!risk.Name}"/></td>
+                             <td style="padding:3px;"><apex:outputText value="{!risk.DDTracker__Title__c}"/></td>
+                              <td style="padding:3px;"><apex:outputText value="{0, date, MMMM d, yyyy}"><apex:param value="{!risk.DDTracker__Date_Raised__c}"/></apex:outputText></td>
+                            <td style="padding:3px;"><apex:outputText value="{0, date, MMMM d, yyyy}"><apex:param value="{!risk.DDTracker__Closed_Date__c}"/></apex:outputText></td>                       
+                            <td style="padding:3px;"><apex:outputText value="{!risk.DDTracker__Probability__c}"/></td> 
+                             <td style="padding:3px;"><apex:outputText value="{!risk.DDTracker__Impact_CC__c}"/></td> 
+                               <td style="padding:3px;"><apex:outputText value="{!risk.DDTracker__Weighting__c}"/></td> 
+                               <td align="left" style="background-color:#F3F3F3;color:#000000;text-align:left;padding:3px;">
+                               <apex:inputHidden value="{!risk.DDTracker__Risk_Icon_Image_Map__c}"/>
+                               <!-- <apex:image value="https://{!UnqiueURL}/servlet/servlet.ImageServer?id={!risk.DDTracker__Risk_Icon_Image_Map__c}&oid={!orgId}" width="18" height="18"/> -->
+                               
+                               <img src="/servlet/servlet.ImageServer?id={!risk.DDTracker__Risk_Icon_Image_Map__c}&oid={!orgId}" width="18" height="18"/>
+                               <!-- <apex:image value="{!risk.DDTracker__Risk_Icon_Image_Map__c}" width="18" height="18"/> --> 
+                             </td>      
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!risksList.size=0}">
+                <apex:outputText value="No risks included in filtered results" />             
+            </apex:outputPanel>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!dispDashboard}">
+            <table width="100%" border="0" style="border-collapse: collapse">
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td class="header1" colspan="4" valign="bottom"><b>Dashboard</b></td>
+                </tr>
+            </table>
+            <br/>
+            <apex:outputLink value="{!dashboardURL}" target="_blank">Click here to view the Dashboard</apex:outputLink>
+        </apex:outputPanel>
+    </body>
+</html>
+</apex:form>
+</apex:page>

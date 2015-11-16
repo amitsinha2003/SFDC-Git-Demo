@@ -1,0 +1,20 @@
+<!-- Name    : CreateNewContactPage -->
+<!-- Author : Deloitte Consulting -->
+<!-- Desc    : This page overrides the standard Create page for Contact -->
+<apex:page standardController="Contact" docType="html-5.0" extensions="CreateNewContactController">
+    <apex:pageMessages />
+    <apex:form >
+        <div id="detail">
+            <title></title>
+            <table>
+                <apex:repeat value="{!$ObjectType.Contact.fieldsets.Layout_Section_Detail}" var="fld"> 
+                    <tr valign="top">
+                        <td width="300px"><apex:outputText value="{!fld.Label}"/></td> 
+                        <td width="300px"><input type="auto" value="{!con[fld]}"/> </td>
+                    </tr> 
+                </apex:repeat>
+            </table>
+        </div>
+        <apex:commandButton action="{!saveContact}"/>
+    </apex:form>
+</apex:page>

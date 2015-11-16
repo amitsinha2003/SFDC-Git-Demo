@@ -1,0 +1,7 @@
+<apex:page standardController="DDTracker__TKR_Project__c" extensions="DDTracker.TKR_Gantt_Chart_Helper" sidebar="false">
+    <apex:form >
+        <apex:commandLink target="_self" action="{!cancel}" rendered="{!!allowView}" >{!$Label.ddtracker__TKR_Back}</apex:commandLink>
+        <c:TKR_Gantt_Chart target="{!myId}"/>
+        <apex:outputLink target="_top" value="{!$Page.DDTracker__TKR_Project_Gantt_Chart}?Id={!myId}&p" rendered="{!allowView}">{!$Label.ddtracker__TKR_FullView}</apex:outputLink>    
+    </apex:form>
+</apex:page>

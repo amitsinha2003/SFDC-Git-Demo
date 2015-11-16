@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template used for email notification to last modifier for rejection - Mobile Friendly</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>TKR Test Script Rejection Message - Mobile Friendly</name>
+    <style>none</style>
+    <subject>Test Script Rejection Notification - {!TKR_Test_Templates__c.Title__c}</subject>
+    <type>custom</type>
+</EmailTemplate>

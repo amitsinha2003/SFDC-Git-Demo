@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>GLBL_Correct_Password</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the password is correct</shortDescription>
+        <value>Correct password!</value>
+    </labels>
+    <labels>
+        <fullName>GLBL_Incorrect_Password</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the password is incorrect</shortDescription>
+        <value>Incorrect password!</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Add_An_Attachment</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add An Attachment</shortDescription>
+        <value>Add An Attachment</value>
+    </labels>
+    <labels>
+        <fullName>TKR_AnErrorHasOcurred</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AnErrorHasOcurred</shortDescription>
+        <value>An error has occurred:</value>
+    </labels>
+    <labels>
+        <fullName>TKR_AttachFile</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AttachFile</shortDescription>
+        <value>Attach File</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Back</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Burn_Status</fullName>
+        <categories>Tracker, User Story, Status, Burndown Chart</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEPRICATED</shortDescription>
+        <value>Passed (Complete)</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Data_Design_Fields</fullName>
+        <categories>Technical Document Generation, Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEPRICATED</shortDescription>
+        <value>Overview__c 
+Fields__c</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Estimated_Status</fullName>
+        <categories>Tracker, User Story, Status, Burndown Chart</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEPRICATED</shortDescription>
+        <value>Backlog - Estimated</value>
+    </labels>
+    <labels>
+        <fullName>TKR_FullView</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FullView</shortDescription>
+        <value>[Full View]</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Functional_Document_Descriptions</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEPRICATED</shortDescription>
+        <value>The purpose of this document is to specify the details (‘acceptance criteria’) for a specific set of requirements (‘user stories’). 
+Its format is that of SCRUM used for Agile projects.</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Integration_Design_Fields</fullName>
+        <categories>Technical Document Generation, Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEPRICATED</shortDescription>
+        <value>Overview__c
+Data_Model__c 
+Fields__c 
+Objects__c</value>
+    </labels>
+    <labels>
+        <fullName>TKR_JSON_Formation_Error</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>JSON Formation Error</shortDescription>
+        <value>Unable to generate JSON for</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Passed</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Outcome label to be used in Apex Class</shortDescription>
+        <value>Passed</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Passed_Minor_Issues</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Outcome label to be used in Apex Class</shortDescription>
+        <value>Passed with minor issues</value>
+    </labels>
+    <labels>
+        <fullName>TKR_QR_Cards_Password</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEPRICATED</shortDescription>
+        <value>tracker</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Save_Test_Execution</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message to notify end user to complete all the test steps</shortDescription>
+        <value>Please complete all the test steps to complete the test</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Save_Test_Execution_Button</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name of the buttom on Run Test Script Page bottom</shortDescription>
+        <value>Save test execution</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Save_Test_Outcome</fullName>
+        <categories>Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message to notify end user to fill test outcome fields</shortDescription>
+        <value>Please fill overall test outcome and overall test comments to complete the test</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Sprint_Design_Fields</fullName>
+        <categories>Technical Document Generation, Tracker</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEPRICATED</shortDescription>
+        <value>Overview__c 
+Data_Model__c 
+Fields__c 
+Objects__c 
+Page_Layouts__c 
+Apex_Classes__c 
+Visualforce_Pages__c 
+Apex_Trigger__c 
+Other_Components__c</value>
+    </labels>
+    <labels>
+        <fullName>TKR_Version</fullName>
+        <categories>Version, Tracker</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tracker Version</shortDescription>
+        <value>5.1.0.8</value>
+    </labels>
+</CustomLabels>
