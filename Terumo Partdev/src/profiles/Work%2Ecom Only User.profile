@@ -97,6 +97,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>HelloWorld</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MyProfilePageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2350,6 +2354,10 @@
     </layoutAssignments>
     <pageAccesses>
         <apexPage>AccountSharePage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AccountSharePageTestCopy</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

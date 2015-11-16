@@ -1,0 +1,217 @@
+<!-- Name    : AccountSharePage -->
+<!-- Author : Deloitte Consulting -->
+<!-- Desc    : This page replaces the manual sharing screen on Accounts -->
+<apex:page docType="html-5.0" id="accountsharepage" standardController="Account" extensions="AccountShareController" tabStyle="Account" >
+    <apex:form > 
+    
+        <h1>New Sharing</h1>
+        <header>Sharing Information</header>
+    <!-- search -->
+        <label for="usertype">Search : </label>
+        <apex:selectList id="usertype" value="{!userType}" multiselect="false" size="1">
+            <apex:selectOptions value="{!userTypes}"/>
+        </apex:selectList>
+        
+        <label for="searchtext"> for : </label>
+        <input id="searchtext" value="{!searchText}"/>
+        <apex:commandButton value="Find" onclick="search()" reRender="searchresult"/>
+
+        <br/>
+    <!-- userlist select table -->
+<!--    <apex:selectList value="{!selectedUsers}" id="searchresult" multiselect="true" size="10" readonly="true">
+        <apex:selectOption itemValue="0" itemLabel="-None-" id="noselect"/>
+        <apex:selectOptions value="{!userList}" id="userlist"/>
+    </apex:selectList> -->
+        <select id="userlist" disabled="true" multiple="true" size="10" >
+            <option value="0" id="noselect"> --None-- </option>
+        </select>
+            <apex:commandButton value="Add" onclick="addUser()" reRender="selectedlist,userlist"/>
+            <apex:commandButton value="Remove" onclick="removeUser()" reRender="selectedlist,userlist"/>
+        <select id="selectedlist" disabled="true" multiple="true" size="10" value="{!selectedUsers}" >
+            <option value="0" id="noselect"> --None-- </option>         
+        </select>
+    <br/>
+    <!-- account, oppty and case access select options -->
+    <label for="accountselect">Account Access : </label>
+    <!-- <select id="accountselect" multiple="false" size="1" value="{!accountSharingLevel}" >
+        <apex:repeat value="{!accessLevels}" var="lvl">
+            <option value="0" id="noselect"> --None-- </option> 
+        </apex:repeat>      
+    </select> -->
+    <div id="sharing">
+        <apex:selectList id="accountselect" value="{!accountSharingLevel}" multiselect="false" size="1">
+                <apex:selectOptions value="{!accessLevels}"/>
+        </apex:selectList> 
+        <br/>
+
+        <label for="opptyselect">Opportunity Access : </label>
+        <apex:selectList id="opptyselect" value="{!opptySharingLevel}" multiselect="false" size="1">
+                <apex:selectOptions value="{!accessLevels}"/>
+        </apex:selectList> 
+        <br/>
+
+        <label for="caseselect">Case Access : </label>
+        <apex:selectList id="caseselect" value="{!caseSharingLevel}" multiselect="false" size="1">
+                <apex:selectOptions value="{!accessLevels}"/>
+        </apex:selectList> 
+        <br/>
+    </div>
+    <!-- expiration date     -->
+        <label for="expirationdate"> Expiration Date : </label> 
+        <input type="date" id="expirationdate" value="{!expiryDate}"/>
+
+        <!-- <apex:commandButton value="Save" action="{!createAccountSharingRecords}"/> -->
+        <apex:commandButton value="Save" onclick="saveSharing()" reRender="none"/>
+    </apex:form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $( document ).ready(function() {
+           $("#sharing select:first-child option[value='None']").remove();
+        });
+
+        var accId = '{!accId}';
+       
+
+        var accIdList = new Array();
+        <apex:repeat value="{!accountIdSet}" var="accId">
+        accIdList.push('{!accId}');
+        </apex:repeat>
+        console.log(accIdList);
+        console.log(accIdList.length);
+        // $.each(accList, function(i,acc){
+        //     alert(acc);
+        // });
+            // alert(accId);
+        function search(){
+            console.log(accId);
+            // alert('hi');
+            var searchtext = $('#searchtext').val();
+            // Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.AccountShareController.searchUsers}',
+                AccountShareController.searchUsers(
+                    searchtext,
+                    function(result,event) {
+                        if (event.status) {
+                            console.log(event);
+                            console.log(result);
+                            if(result.length){ 
+                                $('#userlist').empty(); 
+                            }
+                            $.each(result, function (i, res) {
+                                $('#userlist').append($('<option>', { 
+                                    value: res.Id,
+                                    text : res.Name 
+                                }));
+                            });
+                            console.log($('#userlist'));
+                            $('#userlist').attr('disabled',false);
+                        }
+                        else {
+                            alert('Error');
+                            console.log(event);
+                        }                         
+                    }
+                );
+
+        };
+
+        function addUser() {
+            var selected = $('#userlist option:selected'),
+            $mainlist = $('#userlist');
+            $newlist = $('#selectedlist');
+            if(selected.length) {
+                $("#selectedlist option[value='0']").remove();
+                console.log(selected);
+                $.each(selected, function(i, item){
+                    $newlist.append($('<option>',{
+                        value: item.value,
+                        text: item.text
+                    }));
+                });
+                
+                $('option:selected',$mainlist).remove();
+                $newlist.attr('disabled',false);
+                if($mainlist.has('option').length <= 0 ){
+                    $mainlist.append($('<option>',{value: "0",text: "--None--"}));
+                    $mainlist.attr('disabled',true);
+                }
+            }
+        }
+
+        function removeUser() {
+            var selected = $('#selectedlist option:selected'),
+            $mainlist = $('#userlist');
+            $newlist = $('#selectedlist');
+            
+            if(selected.length) {
+                $("#userlist option[value='0']").remove();
+                console.log(selected);
+                $.each(selected, function(i, item){
+                    $mainlist.append($('<option>',{
+                        value: item.value,
+                        text: item.text
+                    }));
+                });
+                $('option:selected',$newlist).remove();
+                $mainlist.attr('disabled',false);
+                if($newlist.has('option').length <= 0 ){
+                    $newlist.append($('<option>',{value: "0",text: "--None--"}));
+                    $newlist.attr('disabled',true);
+                }
+            }
+        }
+
+        function saveSharing() {
+            var selectedlist = $('#selectedlist option'),
+            userlist = new Array,
+            sharing = document.getElementById('sharing').getElementsByTagName('select'),
+            accSelect = sharing[0].options[sharing[0].selectedIndex].value,
+            oppSelect = sharing[1].options[sharing[1].selectedIndex].value,
+            caseSelect = sharing[2].options[sharing[2].selectedIndex].value;
+            if(selectedlist.length) {
+                $.each(selectedlist,function(i,item){
+                    userlist.push(item.value);
+                }); 
+                // console.log(userlist);
+                // console.log($('#expirationdate').val());
+                
+                // console.log(sharing[0].options[sharing[0].selectedIndex].value);
+                // console.log($('#opptyselect').val());
+                // console.log( $('#caseselect').val());
+                AccountShareController.createAccountSharingRecords(
+                    $('#expirationdate').val(), userlist,accIdList, accSelect,oppSelect, caseSelect,
+                    function(result,event){
+                        // Go back to the Account detail page
+                        if(event.status) {
+                            if( (typeof sforce != 'undefined') && sforce && (!!sforce.one) ) {
+                            // Salesforce1 navigation
+                                sforce.one.navigateToSObject(accId);
+                            }
+                            else {
+                                // Set the window's URL using a Visualforce expression
+                                alert('{!URLFOR($Action.Account.View,Account.Id)}');
+
+                                // window.location.href = 
+                                //     '{!URLFOR($Action.Account.View,Account.Id)}';
+                            }
+                        }
+                        else {
+                            alert(event.message);
+                            // alert();
+                        }
+                    }
+                );
+            // console.log(selectedlist);
+            // Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.AccountShareController.createAccountSharingRecords}',
+            //  
+            //  function(result,event) {
+
+            //  },
+            //  {escape: true}
+            // );
+            }
+        }
+        
+    </script>
+    
+</apex:page>
