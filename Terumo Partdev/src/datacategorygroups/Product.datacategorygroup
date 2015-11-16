@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Spectra Optia</label>
+            <name>Spectra_Optia</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Elutra Cell Separation System</label>
+            <name>Elutra_Cell_Separation_System</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Trima Accel Automated Blood Collection</label>
+            <name>Trima_Accel_Automated_Blood_Collection</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Blood Bags</label>
+            <name>Blood_Bags</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Product</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

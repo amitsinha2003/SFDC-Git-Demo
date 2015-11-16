@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Error Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Error Logs</value>
+    </caseValues>
+    <fields>
+        <help><!-- The class name associated to the error --></help>
+        <label><!-- Class Name --></label>
+        <name>Class_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Error or exception message --></help>
+        <label><!-- Error Message --></label>
+        <name>Error_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- The type of exception thrown --></help>
+        <label><!-- Exception Type --></label>
+        <name>Exception_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- The apex method associated to the error --></help>
+        <label><!-- Method Name --></label>
+        <name>Method_Name__c</name>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

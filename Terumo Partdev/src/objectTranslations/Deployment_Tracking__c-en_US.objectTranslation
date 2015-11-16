@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Deployment Tracking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Deployment Tracking</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please enter the API Name of the component --></help>
+        <label><!-- Component Name --></label>
+        <name>Component_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Component Type --></label>
+        <name>Component_Type__c</name>
+        <picklistValues>
+            <masterLabel>Action</masterLabel>
+            <translation><!-- Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Class</masterLabel>
+            <translation><!-- Apex Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Sharing Reason</masterLabel>
+            <translation><!-- Apex Sharing Reason --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apex Trigger</masterLabel>
+            <translation><!-- Apex Trigger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>App</masterLabel>
+            <translation><!-- App --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approval Process</masterLabel>
+            <translation><!-- Approval Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assignment Rule</masterLabel>
+            <translation><!-- Assignment Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Button or Link</masterLabel>
+            <translation><!-- Button or Link --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CORS Whitelist Origin</masterLabel>
+            <translation><!-- CORS Whitelist Origin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call Center</masterLabel>
+            <translation><!-- Call Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compact Layout</masterLabel>
+            <translation><!-- Compact Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Data Type</masterLabel>
+            <translation><!-- Custom Data Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Field</masterLabel>
+            <translation><!-- Custom Field --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Label</masterLabel>
+            <translation><!-- Custom Label --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Object</masterLabel>
+            <translation><!-- Custom Object --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Report Type</masterLabel>
+            <translation><!-- Custom Report Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Setting</masterLabel>
+            <translation><!-- Custom Setting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dashboard</masterLabel>
+            <translation><!-- Dashboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document</masterLabel>
+            <translation><!-- Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Template</masterLabel>
+            <translation><!-- Email Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entitlement Process</masterLabel>
+            <translation><!-- Entitlement Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entitlement Template</masterLabel>
+            <translation><!-- Entitlement Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalation Rule</masterLabel>
+            <translation><!-- Escalation Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Data Source</masterLabel>
+            <translation><!-- External Data Source --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Set</masterLabel>
+            <translation><!-- Field Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FlowDefinition</masterLabel>
+            <translation><!-- FlowDefinition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Folder</masterLabel>
+            <translation><!-- Folder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group</masterLabel>
+            <translation><!-- Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Page Component</masterLabel>
+            <translation><!-- Home Page Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Page Layout</masterLabel>
+            <translation><!-- Home Page Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Language Translation</masterLabel>
+            <translation><!-- Language Translation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letterhead</masterLabel>
+            <translation><!-- Letterhead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Component Bundle</masterLabel>
+            <translation><!-- Lightning Component Bundle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightning Page</masterLabel>
+            <translation><!-- Lightning Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>List View</masterLabel>
+            <translation><!-- List View --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Matching Rule</masterLabel>
+            <translation><!-- Matching Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Milestone</masterLabel>
+            <translation><!-- Milestone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Named Credential</masterLabel>
+            <translation><!-- Named Credential --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Page Layout</masterLabel>
+            <translation><!-- Page Layout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permission Set</masterLabel>
+            <translation><!-- Permission Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Queue</masterLabel>
+            <translation><!-- Queue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Type</masterLabel>
+            <translation><!-- Record Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remote Site</masterLabel>
+            <translation><!-- Remote Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report</masterLabel>
+            <translation><!-- Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting Snapshot</masterLabel>
+            <translation><!-- Reporting Snapshot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Role</masterLabel>
+            <translation><!-- Role --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Action</masterLabel>
+            <translation><!-- Send Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Rule</masterLabel>
+            <translation><!-- Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Set</masterLabel>
+            <translation><!-- Sharing Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Static resource</masterLabel>
+            <translation><!-- Static resource --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tab</masterLabel>
+            <translation><!-- Tab --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Territory</masterLabel>
+            <translation><!-- Territory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transaction Security Policy</masterLabel>
+            <translation><!-- Transaction Security Policy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Criteria Based Sharing Rule</masterLabel>
+            <translation><!-- User Criteria Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Membership Based Sharing Rule</masterLabel>
+            <translation><!-- User Membership Based Sharing Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation Rule</masterLabel>
+            <translation><!-- Validation Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Component</masterLabel>
+            <translation><!-- Visualforce Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Page</masterLabel>
+            <translation><!-- Visualforce Page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Email Alert</masterLabel>
+            <translation><!-- Workflow Email Alert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Field Update</masterLabel>
+            <translation><!-- Workflow Field Update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Outbound Message</masterLabel>
+            <translation><!-- Workflow Outbound Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Rule</masterLabel>
+            <translation><!-- Workflow Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Task</masterLabel>
+            <translation><!-- Workflow Task --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Time Trigger</masterLabel>
+            <translation><!-- Workflow Time Trigger --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Deployed to Prod? --></label>
+        <name>Deployed_to_Prod__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployed to Prod by --></label>
+        <name>Deployed_to_Prod_by__c</name>
+        <relationshipLabel><!-- Deployment Tracking (Deployed to Prod by) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deployed to Test? --></label>
+        <name>Deployed_to_Test__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployed to Test by --></label>
+        <name>Deployed_to_Test_by__c</name>
+        <relationshipLabel><!-- Deployment Tracking (Deployed to Test by) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deployment Comments --></label>
+        <name>Deployment_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deployment Type --></label>
+        <name>Deployment_Type__c</name>
+        <picklistValues>
+            <masterLabel>Automatic</masterLabel>
+            <translation><!-- Automatic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Deployment Step</masterLabel>
+            <translation><!-- Post Deployment Step --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre Deployment Step</masterLabel>
+            <translation><!-- Pre Deployment Step --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the API Name of the object that this component is related to. --></help>
+        <label><!-- Parent Object Name --></label>
+        <name>Parent_Object_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deploy to Prod</masterLabel>
+            <translation><!-- Deploy to Prod --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deploy to Test</masterLabel>
+            <translation><!-- Deploy to Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- Deployment Tracking --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Delployment Tracking Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Environments --></label>
+            <section>Environments</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter deployment comments when component type is Other --></errorMessage>
+        <name>Enter_comments_if_Comp_Type_is_Other</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,8 @@
+Hello, 
+
+Please approve the below opportunity submitted by {!Opportunity.LastModifiedBy}
+
+Opportunity - {!Opportunity.Link}
+
+Thanks
+Terumo BCT Team

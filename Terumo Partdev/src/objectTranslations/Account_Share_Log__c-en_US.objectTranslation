@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Share Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Share Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- AccountShareID --></label>
+        <name>AccountShareID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Account Share Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Expiry Date --></label>
+        <name>Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Processed</masterLabel>
+            <translation><!-- Processed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Account Share Logs --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Account Share Log Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

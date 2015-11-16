@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>TBCT_ContactDuplicate_Error</fullName>
+        <categories>Duplicate</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This error message displays when there is a duplicate Contact in the system.</shortDescription>
+        <value>duplicate record(s) already exist in the system. Please modify your data.</value>
+    </labels>
+</CustomLabels>

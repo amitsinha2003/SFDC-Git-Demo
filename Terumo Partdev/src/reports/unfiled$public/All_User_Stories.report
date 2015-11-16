@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>DDTracker__TKR_User_Story__c.DDTracker__Parent_Epic__c</field>
+    </columns>
+    <columns>
+        <field>DDTracker__TKR_User_Story__c.DDTracker__Functional_Area__c</field>
+    </columns>
+    <columns>
+        <field>DDTracker__TKR_User_Story__c.DDTracker__As_A__c</field>
+    </columns>
+    <columns>
+        <field>DDTracker__TKR_User_Story__c.DDTracker__I_Want_To__c</field>
+    </columns>
+    <columns>
+        <field>DDTracker__TKR_User_Story__c.DDTracker__So_that__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Report of all user stories in tracker</description>
+    <format>Tabular</format>
+    <name>All User Stories</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$DDTracker__TKR_Project__c$DDTracker__TKR_User_Story__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DDTracker__TKR_Project__c.DDTracker__Anticipated_Start_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

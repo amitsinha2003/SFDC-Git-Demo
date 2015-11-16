@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Communication Preference</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Communication Preferences</value>
+    </caseValues>
+    <fields>
+        <label><!-- Channel --></label>
+        <name>Channel__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post</masterLabel>
+            <translation><!-- Post --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Communication Preferences --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Preference --></label>
+        <name>Preference__c</name>
+        <picklistValues>
+            <masterLabel>Opt-In</masterLabel>
+            <translation><!-- Opt-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opt-Out</masterLabel>
+            <translation><!-- Opt-Out --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Channel --></label>
+        <name>Preferred_Channel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <picklistValues>
+            <masterLabel>Spectra Optia Apheresis System</masterLabel>
+            <translation><!-- Spectra Optia Apheresis System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teruflux Blood Bags</masterLabel>
+            <translation><!-- Teruflux Blood Bags --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trima Accel Automated Blood Collection System</masterLabel>
+            <translation><!-- Trima Accel Automated Blood Collection System --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <picklistValues>
+            <masterLabel>Field Action</masterLabel>
+            <translation><!-- Field Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly updates</masterLabel>
+            <translation><!-- Weekly updates --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Communication Preference Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Preference Details --></label>
+            <section>Preference Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot mark this as preferred channel if the contact has opted out of this communication channel --></errorMessage>
+        <name>Preferred_Channel_Selection</name>
+    </validationRules>
+</CustomObjectTranslation>
